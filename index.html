@@ -67,6 +67,14 @@
           <a class="tool-card" href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer"><span class="tool-icon chatgpt" aria-hidden="true">◎</span><span><strong>開啟 ChatGPT</strong><small>可用 Google 帳號登入</small></span><span aria-hidden="true">↗</span></a>
         </div>
       </div>
+      <div class="cohort-feedback">
+        <span class="cohort-feedback-mark" aria-hidden="true">✓</span>
+        <div id="cohort-status" role="status" aria-live="polite" aria-atomic="true">
+          <strong id="cohort-status-title">已選擇上午梯次</strong>
+          <p id="cohort-status-copy">今日任務：反賄選＋納保官</p>
+        </div>
+        <a id="cohort-jump" href="#missions">查看上午任務 ↓</a>
+      </div>
       <p class="notice"><strong>不用兩個都學。</strong>任選一個順手的工具；若遇到免費額度或服務問題，再換另一個。</p>
     </section>
 
@@ -126,7 +134,7 @@
 
     <section id="missions" class="missions-section section-block" aria-labelledby="missions-title">
       <div class="section-shell">
-        <div class="section-heading"><p class="eyebrow">每人完成兩件作品</p><h2 id="missions-title">選擇你的今日任務</h2><p>先請 AI 幫你理解，再以課堂提供的官方事實卡查證。最後用自己的話做成圖卡。</p></div>
+        <div class="section-heading"><p class="eyebrow">每人完成兩件作品</p><h2 id="missions-title">選擇你的今日任務</h2><p>先請 AI 幫你理解，再以課堂提供的官方事實卡查證。最後用自己的話做成圖卡。</p><p id="mission-cohort-summary" class="mission-cohort-summary" role="status" aria-live="polite">目前顯示：上午梯次｜反賄選＋納保官</p></div>
         <div class="mission-tabs" role="tablist" aria-label="梯次主題">
           <button id="tab-morning" role="tab" aria-selected="true" aria-controls="panel-morning" tabindex="0" data-cohort-tab="morning">上午梯次</button>
           <button id="tab-afternoon" role="tab" aria-selected="false" aria-controls="panel-afternoon" tabindex="-1" data-cohort-tab="afternoon">下午梯次</button>
@@ -171,7 +179,7 @@
         <div class="section-heading"><p class="eyebrow light">最後一步</p><h2 id="submit-title">確認兩張圖卡後，繳交成果</h2><p>每位學員都要交兩個 PNG 檔，並在表單留下今天最有效的一句提示詞與查證方式。優先使用 Google 表單；若表單無法開啟，再使用雲端資料夾備援。</p></div>
         <div class="submit-grid">
           <article class="submit-card" data-submit-card="morning"><span>上午梯次</span><h3>反賄選＋納保官</h3><p><code>姓名_反賄選.png</code><br><code>姓名_納保官.png</code></p><a class="button button-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSd3ydXSgrYKZbpYCspHAs-XYDpnMAu1il3m8MQd78gk2CXrUw/viewform" target="_blank" rel="noopener noreferrer">開啟上午成果表單</a><a class="button button-secondary" href="https://drive.google.com/drive/folders/1KJsG8ozcpKc1RNcKIgvXk86dbt3UU6ux?usp=sharing" target="_blank" rel="noopener noreferrer">備援：開啟上午雲端資料夾</a></article>
-          <article class="submit-card" data-submit-card="afternoon"><span>下午梯次</span><h3>反詐騙＋稅籍異動即時通</h3><p><code>姓名_反詐騙.png</code><br><code>姓名_稅籍異動即時通.png</code></p><a class="button button-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfK9-ul-2r9FEjYJHlQvpvjmTSe5FhxYTfVu7NyKhUPfyAdAQ/viewform" target="_blank" rel="noopener noreferrer">開啟下午成果表單</a><a class="button button-secondary" href="https://drive.google.com/drive/folders/1QihY95gy1hiWLjQ7pZzLiJ_zbjHeZdxG?usp=sharing" target="_blank" rel="noopener noreferrer">備援：開啟下午雲端資料夾</a></article>
+          <article class="submit-card" data-submit-card="afternoon" hidden><span>下午梯次</span><h3>反詐騙＋稅籍異動即時通</h3><p><code>姓名_反詐騙.png</code><br><code>姓名_稅籍異動即時通.png</code></p><a class="button button-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfK9-ul-2r9FEjYJHlQvpvjmTSe5FhxYTfVu7NyKhUPfyAdAQ/viewform" target="_blank" rel="noopener noreferrer">開啟下午成果表單</a><a class="button button-secondary" href="https://drive.google.com/drive/folders/1QihY95gy1hiWLjQ7pZzLiJ_zbjHeZdxG?usp=sharing" target="_blank" rel="noopener noreferrer">備援：開啟下午雲端資料夾</a></article>
         </div>
         <div class="privacy-reminder"><strong>上傳前請注意</strong><p>成果檔只使用姓名辨識，不要在圖卡、檔名或提示詞放入電話、住址、身分證字號、稅單或其他個人資料。收件連結只在課程期間開放，若看到表單已關閉，請洽現場講師。</p></div>
       </div>

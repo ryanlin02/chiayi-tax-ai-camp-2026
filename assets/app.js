@@ -51,8 +51,18 @@
   const cohortRadios = $$('input[name="cohort"]');
   const tabs = $$('[data-cohort-tab]');
   const panels = $$('[data-cohort-panel]');
+  const submitCards = $$('[data-submit-card]');
+  const cohortStatusTitle = $('#cohort-status-title');
+  const cohortStatusCopy = $('#cohort-status-copy');
+  const cohortJump = $('#cohort-jump');
+  const missionCohortSummary = $('#mission-cohort-summary');
+  const cohortDetails = {
+    morning: { label: '上午梯次', topics: '反賄選＋納保官' },
+    afternoon: { label: '下午梯次', topics: '反詐騙＋稅籍異動即時通' }
+  };
 
-  function setCohort(cohort, scroll = false) {
+  function setCohort(cohort, announce = false) {
+    const detail = cohortDetails[cohort] || cohortDetails.morning;
     cohortRadios.forEach(radio => { radio.checked = radio.value === cohort; });
     tabs.forEach(tab => {
       const active = tab.dataset.cohortTab === cohort;
@@ -60,13 +70,18 @@
       tab.tabIndex = active ? 0 : -1;
     });
     panels.forEach(panel => { panel.hidden = panel.dataset.cohortPanel !== cohort; });
+    submitCards.forEach(card => { card.hidden = card.dataset.submitCard !== cohort; });
+    cohortStatusTitle.textContent = `已選擇${detail.label}`;
+    cohortStatusCopy.textContent = `今日任務：${detail.topics}`;
+    cohortJump.textContent = `查看${detail.label.replace('梯次', '')}任務 ↓`;
+    missionCohortSummary.textContent = `目前顯示：${detail.label}｜${detail.topics}`;
     try { localStorage.setItem('tax-ai-cohort', cohort); } catch { /* private mode */ }
-    if (scroll) $('#missions').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (announce) showToast(`已切換為${detail.label}：${detail.topics}`);
   }
 
-  cohortRadios.forEach(radio => radio.addEventListener('change', () => setCohort(radio.value)));
+  cohortRadios.forEach(radio => radio.addEventListener('change', () => setCohort(radio.value, true)));
   tabs.forEach(tab => {
-    tab.addEventListener('click', () => setCohort(tab.dataset.cohortTab));
+    tab.addEventListener('click', () => setCohort(tab.dataset.cohortTab, true));
     tab.addEventListener('keydown', event => {
       if (!['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
       event.preventDefault();
