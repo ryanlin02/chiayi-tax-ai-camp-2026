@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AI 幫我讀懂財稅課後延伸學習：私人老師、資料查證、NotebookLM、Gem 與創作練習">
+  <title>課後延伸學習｜AI 幫我讀懂財稅</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body class="extension-page">
+  <a class="skip-link" href="#extension-main">跳到主要內容</a>
+  <header class="extension-hero">
+    <div class="section-shell">
+      <div class="header-links"><a href="index.html">← 回課程首頁</a><a href="resources.html">課堂官方資料 →</a></div>
+      <p class="eyebrow light">上完課，挑一條路繼續</p>
+      <h1>不必一次學會所有 AI 工具，先把一件事學懂。</h1>
+      <p>這一頁從參考教案中只留下適合本課程的延伸內容。每次選一項、練習 10～20 分鐘，仍然遵守「問懂、追問、查證、說懂」。</p>
+    </div>
+  </header>
+
+  <main id="extension-main" class="extension-content section-shell">
+    <p class="eyebrow">四條延伸路線</p>
+    <h2>今天想從哪裡開始？</h2>
+    <ol class="learning-map">
+      <li><a href="#tutor"><span>01</span><strong>讓 AI 當私人老師</strong></a></li>
+      <li><a href="#research"><span>02</span><strong>學習陌生專業知識</strong></a></li>
+      <li><a href="#notebook"><span>03</span><strong>用來源建立 NotebookLM</strong></a></li>
+      <li><a href="#reuse"><span>04</span><strong>建立可重複使用的助手</strong></a></li>
+    </ol>
+
+    <section id="tutor" class="extension-section">
+      <p class="eyebrow">路線 1</p><h2>讓 AI 當一對一私人老師</h2>
+      <p class="extension-lead">適合第一次接觸一個主題時使用。不要只叫 AI 給答案，而是讓它解釋、舉例、出一題，再依你的回答補充。</p>
+      <div class="lesson-grid">
+        <article class="lesson-card"><span class="time-badge">約 10 分鐘</span><h3>練習步驟</h3><ol><li>把括號換成想學的主題。</li><li>先回答 AI 的一題小測驗。</li><li>答錯時，請它換一個生活例子再說明。</li><li>遇到日期、資格、金額或法律效果，回官方來源核對。</li></ol></article>
+        <div class="prompt-box"><button class="copy-extension" type="button" data-copy="prompt-tutor">複製提示詞</button><pre id="prompt-tutor">你是我的入門學習教練。我要學懂「［主題］」，目前幾乎沒有背景知識。
+
+請依序進行：
+1. 先用 150 字內的繁體中文白話解釋。
+2. 用一個日常生活情境比喻。
+3. 只問我一題簡單問題，等我回答後再繼續。
+4. 如果我答錯，指出我誤會的地方，換一種說法說明。
+
+不要一次倒出所有內容。涉及最新規定或專業判斷時，請標示需要查證，不要自行猜測。</pre></div>
+      </div>
+    </section>
+
+    <section id="research" class="extension-section">
+      <p class="eyebrow">路線 2</p><h2>從生活問題，逐步學習一個專業領域</h2>
+      <p class="extension-lead">參考教案中的「廣泛研究」與「多來源比對」很有價值，但要加上來源、日期與不同觀點，才不會把一段看似完整的文字誤當成研究結果。</p>
+      <div class="lesson-grid">
+        <article class="lesson-card"><span class="time-badge">約 15～20 分鐘</span><h3>三段式研究</h3><ol><li>先建立知識地圖：有哪些名詞與問題？</li><li>找不同來源：官方、專業機構、新聞。</li><li>列出一致與分歧，再回原始來源確認。</li></ol><div class="extension-caution"><strong>別跳過這一步：</strong>要求 AI 附上可開啟的來源名稱、網址與日期；連結打不開或找不到原文，就不要引用。</div></article>
+        <div>
+          <div class="prompt-box"><button class="copy-extension" type="button" data-copy="prompt-map">複製提示詞</button><pre id="prompt-map">我想入門學習「［主題］」。請先建立一張知識地圖，列出：核心概念、5 個常見名詞、初學者最常問的問題，以及哪些內容會因時間或個案而改變。先不要假裝給出最新結論；無法確認的地方請標示。</pre></div>
+          <div class="prompt-box"><button class="copy-extension" type="button" data-copy="prompt-compare">複製提示詞</button><pre id="prompt-compare">請針對「［問題］」比較政府官方資料、專業機構資料與近期新聞的說法。整理共同結論、不同觀點、資料日期與仍待確認之處。每一項都列出來源名稱與網址；如果你無法實際搜尋網路，請直接說明，不要編造來源。</pre></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="notebook" class="extension-section">
+      <p class="eyebrow">路線 3</p><h2>用 NotebookLM 對著資料學</h2>
+      <p class="extension-lead">當你已經有政府網站、PDF、講義或可信文章時，NotebookLM 可以針對放入的來源回答並顯示引用位置。它特別適合學習財稅、法規或其他需要回頭查原文的主題。</p>
+      <div class="lesson-grid">
+        <article class="lesson-card"><span class="time-badge">約 15 分鐘</span><h3>第一次操作</h3><ol><li>準備 1～3 份你有權使用的可信資料。</li><li>在 NotebookLM 建立筆記本並加入來源。</li><li>先問名詞，再問差異與例子。</li><li>點開回答中的引用，確認原文是否真的支持結論。</li></ol></article>
+        <div>
+          <div class="prompt-box"><button class="copy-extension" type="button" data-copy="prompt-notebook">複製提示詞</button><pre id="prompt-notebook">只根據我放入的來源，為第一次接觸這個主題的一般民眾整理：
+1. 一句話核心概念
+2. 三個一定要懂的名詞
+3. 一個生活化例子
+4. 三個容易誤會的地方
+
+每一項請附上來源引用；來源沒有提到的內容請說「資料中沒有說明」。</pre></div>
+          <div class="tool-shelf"><a href="https://notebooklm.google.com/" target="_blank" rel="noopener noreferrer"><strong>開啟 NotebookLM ↗</strong><small>放入來源後再提問</small></a><a href="https://support.google.com/notebooklm/answer/16179559?hl=zh-Hant" target="_blank" rel="noopener noreferrer"><strong>查看官方操作說明 ↗</strong><small>了解回答與引用如何運作</small></a></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reuse" class="extension-section">
+      <p class="eyebrow">路線 4</p><h2>把好提示詞，變成可重複使用的助手</h2>
+      <p class="extension-lead">如果你常常需要相同的回答方式，可以把「角色、任務、背景、格式」寫成固定指令。Gemini 的 Gem 是其中一種做法；功能與免費額度可能調整，以當下頁面顯示為準。</p>
+      <div class="lesson-grid">
+        <article class="lesson-card"><span class="time-badge">約 15～20 分鐘</span><h3>四個欄位</h3><ul><li><strong>角色：</strong>它用什麼專業視角協助？</li><li><strong>任務：</strong>每次要做哪一類事情？</li><li><strong>背景與規則：</strong>對象、來源與不能猜的內容。</li><li><strong>格式：</strong>回答長度、步驟及語氣。</li></ul></article>
+        <div>
+          <div class="prompt-box"><button class="copy-extension" type="button" data-copy="prompt-gem">複製 Gem 指令</button><pre id="prompt-gem">角色：你是耐心的公共資訊學習教練，協助第一次接觸專業主題的一般民眾。
+
+任務：先釐清使用者想懂什麼，再用白話、生活例子與一次一題的方式教學。
+
+背景與規則：優先使用我提供的官方資料。資料中沒有的資格、期限、金額、電話或法律效果不得猜測；要清楚標示不確定處與查證方向。
+
+格式：繁體中文。先用 150 字說明，再列 3 個重點，最後只問 1 題確認理解。除非我要求，不要一次輸出長篇文章。</pre></div>
+          <div class="tool-shelf"><a href="https://gemini.google.com/gems/view" target="_blank" rel="noopener noreferrer"><strong>開啟 Gemini Gems ↗</strong><small>建立自己的固定助手</small></a><a href="https://support.google.com/gemini/answer/15235603?hl=zh-Hant" target="_blank" rel="noopener noreferrer"><strong>查看官方 Gems 指南 ↗</strong><small>角色、任務、背景與格式</small></a></div>
+        </div>
+      </div>
+      <div class="extension-next"><h3>進階挑戰：查證後再創作</h3><p>你可以請 AI 把已確認的內容改成圖卡、簡報架構或短影片腳本。先固定正確文字，再生成配圖；重要電話、網址、法規文字與中文字排版不要交給圖片模型自行產生。</p></div>
+    </section>
+
+    <section class="extension-section">
+      <p class="eyebrow">安全使用</p><h2>任何工具都要守住三條底線</h2>
+      <div class="resource-grid"><article class="resource-card"><h3>不要上傳不該公開的資料</h3><p>包含身分證字號、稅單、帳戶、密碼、未公開公務資料及他人的個人資訊。</p></article><article class="resource-card"><h3>AI 不是最後裁判</h3><p>涉及權利、義務、申辦期限、醫療、法律或金錢決策，回到主管機關與專業人員確認。</p></article></div>
+      <div class="tool-shelf"><a href="https://www.ey.gov.tw/Page/448DE008087A1971/40c1a925-121d-4b6b-8f40-7e9e1a5401f2" target="_blank" rel="noopener noreferrer"><strong>行政院生成式 AI 參考指引 ↗</strong><small>隱私、機密、判斷責任與風險原則</small></a><a href="resources.html" target="_blank"><strong>回課堂官方事實卡 ↗</strong><small>用今天的四個主題繼續練習</small></a></div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div><strong>AI 幫我讀懂財稅</strong><p>主辦：嘉義市政府財政稅務局　｜　講師：林俊余</p></div><div class="footer-links"><a href="resources.html">課堂官方資料</a><a href="index.html">回課程首頁</a></div></footer>
+  <div id="extension-toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+  <script>
+    (() => {
+      const toast = document.getElementById('extension-toast');
+      let timer;
+      document.querySelectorAll('.copy-extension').forEach(button => button.addEventListener('click', async () => {
+        const target = document.getElementById(button.dataset.copy);
+        try {
+          await navigator.clipboard.writeText(target.textContent.trim());
+          toast.textContent = '提示詞已複製，可以貼到 AI 工具。';
+        } catch {
+          const range = document.createRange();
+          range.selectNodeContents(target);
+          const selection = window.getSelection();
+          selection.removeAllRanges();
+          selection.addRange(range);
+          toast.textContent = '文字已選取，請按 Ctrl/Cmd＋C 複製。';
+        }
+        toast.classList.add('show');
+        clearTimeout(timer);
+        timer = setTimeout(() => toast.classList.remove('show'), 2600);
+      }));
+    })();
+  </script>
+</body>
+</html>
