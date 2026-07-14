@@ -102,6 +102,8 @@
     point1: $('#point-1'), point2: $('#point-2'), point3: $('#point-3'), image: $('#card-image')
   };
   const filenamePreview = $('#filename-preview');
+  const imagePromptPreview = $('#image-prompt-preview');
+  const copyImagePrompt = $('#copy-image-prompt');
   const removeImage = $('#remove-image');
   const errorBox = $('#form-error');
   let uploadedImage = null;
@@ -112,6 +114,20 @@
     '反詐騙': { label: '公民廉政', file: '反詐騙', dark: '#651f25', main: '#a53b3b', pale: '#f8e4e5', icon: '!' },
     '稅籍異動即時通': { label: '財稅知識', file: '稅籍異動即時通', dark: '#164866', main: '#266b93', pale: '#e1edf4', icon: '↗' }
   };
+
+  function buildImagePrompt() {
+    const theme = themes[fields.topic.value];
+    const studentName = fields.name.value.trim() || '［學員姓名］';
+    const title = fields.title.value.trim() || '［圖卡標題］';
+    const points = [fields.point1.value, fields.point2.value, fields.point3.value]
+      .map((point, index) => `${index + 1}. ${point.trim() || `［重點${index + 1}］`}`)
+      .join('\n');
+    return `請直接生成一張完整的公共資訊圖卡圖片，不要只提供文字說明。\n\n規格：\n- 1:1 正方形構圖，適合輸出為 PNG\n- 繁體中文，清楚、專業、親切，適合一般民眾閱讀\n- 主題分類：${theme.label}\n- 主題：${fields.topic.options[fields.topic.selectedIndex].text}\n- 圖卡標題：${title}\n- 右下角以小字標示：${studentName}\n\n圖卡必須呈現以下三個重點，文字內容不可自行改寫成不同意思：\n${points}\n\n視覺要求：\n- 以圖像、圖示、色塊與清楚層級呈現，不要只是把文字排在白底上\n- 中文字要清晰可讀，避免錯字、亂碼、重複文字與被裁切\n- 不要增加我沒有提供的日期、金額、資格、期限、電話、網址或法規內容\n- 不要放入政府機關標誌或冒充官方公告\n- 如果我另外上傳參考圖片，可取用其視覺概念，但不要擅自加入圖片中未確認的資訊\n\n生成後請提醒我逐字檢查所有中文字與事實；如果文字太多，優先保留三個重點，不要縮成難以閱讀的小字。`;
+  }
+
+  function updateImagePrompt() {
+    imagePromptPreview.textContent = buildImagePrompt();
+  }
 
   function roundedRect(context, x, y, width, height, radius, fill) {
     context.beginPath();
@@ -241,7 +257,8 @@
     ctx.textAlign = 'left';
 
     const safeName = sanitizeFilename(displayName);
-    filenamePreview.textContent = `預計檔名：${safeName}_${theme.file}.png`;
+    filenamePreview.textContent = `草稿檔名：${safeName}_${theme.file}_構想草稿.png`;
+    updateImagePrompt();
   }
 
   function sanitizeFilename(value) {
@@ -291,6 +308,30 @@
     setTimeout(() => fields.name.focus(), 400);
   }));
 
+  copyImagePrompt.addEventListener('click', async () => {
+    const required = [fields.name, fields.title, fields.point1, fields.point2, fields.point3];
+    const empty = required.find(field => !field.value.trim());
+    if (empty) {
+      errorBox.textContent = '請先填寫姓名、標題與三個重點，再複製生圖提示詞。';
+      errorBox.hidden = false;
+      empty.focus();
+      return;
+    }
+    errorBox.hidden = true;
+    updateImagePrompt();
+    try {
+      await navigator.clipboard.writeText(imagePromptPreview.textContent);
+      showToast('AI 生圖提示詞已複製。請貼到 ChatGPT 或 Gemini。');
+    } catch {
+      const range = document.createRange();
+      range.selectNodeContents(imagePromptPreview);
+      const selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(range);
+      showToast('提示詞已選取，請按 Ctrl/Cmd＋C 複製。');
+    }
+  });
+
   form.addEventListener('submit', event => {
     event.preventDefault();
     const required = [fields.name, fields.title, fields.point1, fields.point2, fields.point3];
@@ -305,12 +346,12 @@
     drawCard();
     const theme = themes[fields.topic.value];
     const link = document.createElement('a');
-    link.download = `${sanitizeFilename(fields.name.value)}_${theme.file}.png`;
+    link.download = `${sanitizeFilename(fields.name.value)}_${theme.file}_構想草稿.png`;
     link.href = canvas.toDataURL('image/png');
     document.body.appendChild(link);
     link.click();
     link.remove();
-    showToast('圖卡已下載。請打開圖片檢查後再繳交。');
+    showToast('構想草稿已下載。正式成果請再用 AI 生成完整圖片。');
   });
 
   drawCard();
