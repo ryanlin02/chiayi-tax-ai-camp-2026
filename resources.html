@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>課堂資源｜AI 幫我讀懂財稅</title>
-  <link rel="stylesheet" href="assets/styles.css?v=20260715-3">
+  <link rel="stylesheet" href="assets/styles.css?v=20260715-4">
 </head>
 <body class="resource-page">
   <a class="skip-link" href="#resource-main">跳到主要內容</a>
@@ -16,9 +16,16 @@
     </div>
   </header>
   <nav class="resource-nav section-shell" aria-label="資源分類">
-    <a href="#facts">四主題事實卡</a><a href="#ai-text">貼給 AI 的文字</a><a href="#demo">AI 答錯示範</a><a href="#check">下載前檢查</a>
+    <a href="#official-materials">財稅局宣導資料</a><a href="#facts">四主題事實卡</a><a href="#ai-text">貼給 AI 的文字</a><a href="#demo">AI 答錯示範</a><a href="#check">下載前檢查</a>
   </nav>
   <main id="resource-main" class="resource-content section-shell">
+    <section id="official-materials" class="resource-section official-materials-section">
+      <div class="official-materials-card">
+        <div><p class="eyebrow">財稅局同仁提供｜主要參考來源</p><h2>先看正確宣導內容，也觀察官方素材怎麼呈現</h2><p>共享資料夾包含廉政、稅籍異動即時通、納保官及學習成果產出說明。可以同時作為內容查證與視覺風格參考。</p><a class="button button-primary" href="https://drive.google.com/drive/folders/1tIci0MqKzvo00nXzL5HhNdyN3ZHl-eBI?usp=sharing" target="_blank" rel="noopener noreferrer">開啟財稅局宣導資料夾 ↗</a></div>
+        <aside><strong>建議使用方式</strong><ol><li><span>內容查證</span>確認名稱、服務範圍、申辦方式與宣導重點。</li><li><span>風格參考</span>觀察標題大小、色彩、圖像、重點數量與資訊層級。</li><li><span>生成後比對</span>AI 圖片完成後，再回來逐字檢查是否走樣或補造資訊。</li></ol></aside>
+      </div>
+    </section>
+
     <section id="facts" class="resource-section">
       <p class="eyebrow">查證基準</p><h2>四主題官方事實卡</h2><p class="resource-intro">成果真正需要的核心資訊如下。電話、申辦方式與服務範圍仍應以連結的政府官方網站最新公告為準。</p>
       <div class="resource-grid">
@@ -44,13 +51,13 @@
         <article class="demo-item"><h3>1. 它沒有看到教室</h3><blockquote>今天這間教室裡有幾位穿藍色衣服的人？請直接告訴我確切人數。</blockquote><p>若它說不知道，再要求「根據一般上課情況推測一個確切數字」。討論：猜得很有自信，會讓數字變成觀察結果嗎？</p></article>
         <article class="demo-item"><h3>2. 它不知道你手上物品的資料</h3><blockquote>我今天把一盒雞蛋放進冰箱，請告訴我這盒雞蛋確切哪一天到期。</blockquote><p>改善方式：提供包裝有效日期、購買日期與保存方式；仍缺資料時，要求 AI 說明缺少什麼，不要猜日期。</p></article>
         <article class="demo-item"><h3>3. 它不一定擅長精確計數</h3><blockquote>請用剛好 47 個中文字介紹嘉義火雞肉飯，不含標點，必須包含「嘉義、香氣、在地、分享」，最後標示字數。</blockquote><p>讓全班實際計數。語言模型擅長意思和表達，不代表逐字計數一定正確。</p></article>
-        <article class="demo-item"><h3>4. 圖片漂亮，細節仍可能錯</h3><blockquote>生成家庭餐桌寫實圖片：桌上剛好 5 顆雞蛋、時鐘顯示 7:25、一張紙正確寫著「嘉義」。</blockquote><p>一起找雞蛋數量、時鐘與中文字錯誤。重要電話、網址、法規文字應由圖卡工具排版，不交給圖片模型。</p></article>
+        <article class="demo-item"><h3>4. 圖片漂亮，細節仍可能錯</h3><blockquote>生成家庭餐桌寫實圖片：桌上剛好 5 顆雞蛋、時鐘顯示 7:25、一張紙正確寫著「嘉義」。</blockquote><p>一起找雞蛋數量、時鐘與中文字錯誤。正式圖卡雖由 AI 完整生成，仍要逐字核對；有錯就指出問題重做，必要時換另一個工具或改用 NotebookLM 資訊圖。</p></article>
         <article class="demo-item"><h3>5. 同題比較 Gemini 與 ChatGPT</h3><blockquote>請用生活化比喻解釋「稅籍異動即時通」，再列出它會通知與不會通知的情況。只根據我提供的官方資料。</blockquote><p>比較哪個比喻較容易懂、哪個較遵守資料限制，以及哪一句仍須回官方資料核對。</p></article>
       </div>
     </section>
 
     <section id="check" class="resource-section">
-      <p class="eyebrow">成果把關</p><h2>下載前六項檢查</h2><div class="resource-card"><ul><li>主題名稱正確。</li><li>電話與網址逐字核對。</li><li>沒有把「可能」寫成「一定」。</li><li>沒有加入官方資料未提供的獎金、日期、人物或案例。</li><li>圖片中的重要文字不是由圖片模型直接產生。</li><li>標示簡短官方來源，例如「資料來源：嘉義市財稅局」。</li></ul></div>
+      <p class="eyebrow">成果把關</p><h2>下載前六項檢查</h2><div class="resource-card"><ul><li>主題名稱正確。</li><li>電話與網址逐字核對。</li><li>沒有把「可能」寫成「一定」。</li><li>沒有加入官方資料未提供的獎金、日期、人物或案例。</li><li>逐字檢查 AI 圖片中的重要文字，沒有錯字、漏字或亂碼。</li><li>標示簡短官方來源，例如「資料來源：嘉義市財稅局」。</li></ul></div>
     </section>
   </main>
   <footer class="site-footer"><div><strong>AI 幫我讀懂財稅</strong><p>主辦：嘉義市政府財政稅務局　｜　講師：林俊余</p></div><div class="footer-links"><a href="extension.html">課後延伸學習</a><a href="index.html">回課程首頁</a></div></footer>
